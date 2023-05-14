@@ -2,14 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
 import {View,Image,TextInput,Text, Button} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-//icons
-import{FontAwesomeIcon} from '@fortawesome/react-native-fortawesome';
-import{
-    faSlider,
-    faMagnifyGlass,
-    faChevronDown,
-    faUser,
-}from'@fortawesome/react-native-fortawesome';
+import Header from './src/components/Header';
+import Footer from './src/components/Footer';
 const contact=()=>{
     const navigation = useNavigation();
 
@@ -20,42 +14,58 @@ const contact=()=>{
     },[])
     return(
         <SafeAreaView>
-         <View>
-            <Image source={'./assets/Home/descuento.PNG'}/>                 
-         </View>
+                 <Header/>
 
-         <Text>
-                 Contactenos
-         </Text>
-         <View className="flex">
-         <Text>
-                 Nombre
-         </Text>
-         <TextInput>
+                 <View>
+                    <Image source={'./assets/Home/descuento.PNG'}/>                 
+                 </View>
 
-         </TextInput>
-         <Text>
-                 Correo
-         </Text>
-         <TextInput>
+                 <Text>
+                         Contactenos
+                 </Text>
+                 <View className="flex-column">
+                        <View className="flex">
+                                <Text>
+                                         Nombre
+                                 </Text>
+                                 <TextInput>
 
-         </TextInput>
-         <Text>
-                 Telefono
-         </Text>
-         <TextInput>
- 
-         </TextInput>
-         <Text>
-                 Mensaje
-         </Text>
-         <TextInput>
+                                 </TextInput>
+                        </View>
+                        
+                        <View className="flex">
+                                <Text>
+                                        Correo
+                                 </Text>
+                                 <TextInput>
 
-         </TextInput>
-         <Button>Enviar</Button>
-         </View>
+                                 </TextInput>
+                        </View>
+                        <View className="flex">
+                                <Text>
+                                        Telefono
+                                 </Text>
+                                 <TextInput>
 
-         <Footer/>
+                                 </TextInput>
+                        </View>
+                        <View className="flex">
+                                <Text>
+                                        Mensaje
+                                 </Text>
+                                 <TextInput>
+
+                                 </TextInput>
+                        </View>
+                       
+                                
+                         <Button
+                                title="Enviar"
+                         />
+        
+                 </View>
+
+                 <Footer/>
         </SafeAreaView>
        )
     

@@ -2,6 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
 import {View,Image,TextInput,Text, Button, ScrollView,CheckBox} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
+import Header from './src/components/Header';
+import Footer from './src/components/Footer';
 
 const wayToPay=()=>{
     const navigation = useNavigation();
@@ -13,6 +15,8 @@ const wayToPay=()=>{
     },[])
     return(
         <SafeAreaView>
+            <Header/>
+
             <Text>
                 Elegir forma de pago
             </Text>
@@ -21,7 +25,6 @@ const wayToPay=()=>{
                     <CheckBox
                         value={isSelected}
                         onValueChange={setSelection}
-                        style={styles.checkbox}
                     />
                     <Text>
                         Mastercard
@@ -31,7 +34,6 @@ const wayToPay=()=>{
                     <CheckBox
                         value={isSelected}
                         onValueChange={setSelection}
-                        style={styles.checkbox}
                     />
                     <Text>
                         Visa
@@ -41,7 +43,6 @@ const wayToPay=()=>{
                     <CheckBox
                         value={isSelected}
                         onValueChange={setSelection}
-                        style={styles.checkbox}
                     />
                     <Text>
                         Efectivo
@@ -52,7 +53,6 @@ const wayToPay=()=>{
                     <CheckBox
                         value={isSelected}
                         onValueChange={setSelection}
-                        style={styles.checkbox}
                     />
                     <Text>
                         Dinners
@@ -62,7 +62,6 @@ const wayToPay=()=>{
                     <CheckBox
                         value={isSelected}
                         onValueChange={setSelection}
-                        style={styles.checkbox}
                     />
                     <Text>
                         PSE
@@ -72,7 +71,6 @@ const wayToPay=()=>{
                     <CheckBox
                         value={isSelected}
                         onValueChange={setSelection}
-                        style={styles.checkbox}
                     />
                     <Text>
                         American
@@ -82,7 +80,6 @@ const wayToPay=()=>{
                     <CheckBox
                         value={isSelected}
                         onValueChange={setSelection}
-                        style={styles.checkbox}
                     />
                     <Text>
                        Codensa
@@ -95,7 +92,7 @@ const wayToPay=()=>{
                 </Link>
                 
             </ScrollView>
-
+            <Footer/>
         </SafeAreaView>
     )
 

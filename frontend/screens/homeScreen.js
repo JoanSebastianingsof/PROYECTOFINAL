@@ -2,15 +2,11 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
 import {View,Image,TextInput,Text} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-//icons
-/*import{FontAwesomeIcon} from '@fortawesome/react-native-fortawesome';
-import{
-    faSlider,
-    faMagnifyGlass,
-    faChevronDown,
-    faUser,
-}from'@fortawesome/react-native-fortawesome'*/
-const homeScreen=()=>{
+import Header from './src/components/Header';
+import Footer from './src/components/Footer';
+import { Link } from 'react-router-dom';
+
+const HomeScreen=()=>{
    const navigation = useNavigation();
 
    useLayoutEffect(()=>{
@@ -40,46 +36,54 @@ const homeScreen=()=>{
             <TextInput>
 
             </TextInput>
-            <View className="flex-col shadow-lg">
-                <Image source={'./assets/Home/P1.PNG'}/>
-                <Text className="text-base"> 
-                Agua Filtro Purificador Ozono Carbón Completo+ Envío Gratis
-                </Text>
-                <Text className="text-sm"> 
-                Descripcion
-                </Text>
-                <Text className="text-base" > 
-                $159.900
-                </Text>
-            </View>
-            <View className="flex-col shadow-lg">
-                <Image source={'./assets/Home/P1.PNG'}/>
-                <Text className="text-base"> 
-                Agua Filtro Purificador Ozono Carbón Completo+ Envío Gratis
-                </Text>
-                <Text className="text-sm"> 
-                Descripcion
-                </Text>
-                <Text className="text-base" > 
-                $159.900
-                </Text>
-            </View>
-            <View className="flex-col shadow-lg">
-                <Image source={'./assets/Home/P1.PNG'}/>
-                <Text className="text-base"> 
-                Agua Filtro Purificador Ozono Carbón Completo+ Envío Gratis
-                </Text>
-                <Text className="text-sm"> 
-                Descripcion
-                </Text>
-                <Text className="text-base" > 
-                $159.900
-                </Text>
-            </View>
+            <Link to="/productDescription">
+                 <View className="flex-col shadow-lg"  >
+                    <Image source={'./assets/Home/P1.PNG'}/>
+                    <Text className="text-base"> 
+                        Agua Filtro Purificador Ozono Carbón Completo+ Envío Gratis
+                    </Text>
+                    <Text className="text-sm"> 
+                        Descripcion
+                    </Text>
+                    <Text className="text-base" > 
+                        $159.900
+                    </Text>
+                </View>
+            </Link>
+           
+            <Link to="/productDescription">
+                 <View className="flex-col shadow-lg"  >
+                    <Image source={'./assets/Home/P1.PNG'}/>
+                    <Text className="text-base"> 
+                        Agua Filtro Purificador Ozono Carbón Completo+ Envío Gratis
+                    </Text>
+                    <Text className="text-sm"> 
+                        Descripcion
+                    </Text>
+                    <Text className="text-base" > 
+                        $159.900
+                    </Text>
+                </View>
+            </Link>
+            <Link to="/productDescription">
+                 <View className="flex-col shadow-lg">
+                    <Image source={'./assets/Home/P1.PNG'}/>
+                    <Text className="text-base"> 
+                        Agua Filtro Purificador Ozono Carbón Completo+ Envío Gratis
+                    </Text>
+                    <Text className="text-sm"> 
+                        Descripcion
+                    </Text>
+                    <Text className="text-base" > 
+                        $159.900
+                    </Text>
+                </View>
+            </Link>
+           
         </View>
 
 
-      <footer/>
+      <Footer/>
     </SafeAreaView>
    )
 

@@ -18,10 +18,10 @@ const Footer=()=>{
     const Instagram = async() => {
       await Linking.openURL(""); 
     }
-    const facebook = async() => {
+    const Facebook = async() => {
       await Linking.openURL(""); 
     }
-    const twitter = async() => {
+    const Twitter = async() => {
       await Linking.openURL(""); 
     }
     
@@ -64,10 +64,10 @@ const Footer=()=>{
                     cll 51 b #38-47 
                   </Text>
                   <View className="text-white flex">
-                  <FontAwesomeIcon icon="fa-brands fa-facebook" style={{color: "#ffffff",}} onPress={facebook}/>
-                  <FontAwesomeIcon icon="fa-brands fa-instagram" style={{color: "#ffffff",}}  onPress={Instagram} />
-                  <FontAwesomeIcon icon="fa-brands fa-twitter" style={{color: "#ffffff",}}   onPress={twitter}/>
-                  <FontAwesomeIcon icon="fa-brands fa-whatsapp" style={{color: "#ffffff",}} onPress={Whatsapp} />
+                    <FontAwesomeIcon icon="fa-brands fa-facebook" style={{color: "#ffffff",}} onPress={Facebook}/>
+                    <FontAwesomeIcon icon="fa-brands fa-instagram" style={{color: "#ffffff",}}  onPress={Instagram} />
+                    <FontAwesomeIcon icon="fa-brands fa-twitter" style={{color: "#ffffff",}}   onPress={Twitter}/>
+                    <FontAwesomeIcon icon="fa-brands fa-whatsapp" style={{color: "#ffffff",}} onPress={Whatsapp} />
                   </View>
     
     

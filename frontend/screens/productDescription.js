@@ -3,14 +3,8 @@ import React, { useLayoutEffect } from "react";
 import {View,Image,TextInput,Text} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 //icons
-import{FontAwesomeIcon} from '@fortawesome/react-native-fortawesome';
-import{
-    faSlider,
-    faMagnifyGlass,
-    faChevronDown,
-    faUser,
-}from'@fortawesome/react-native-fortawesome';
-//import { View } from "react-native-animatable";
+import Header from './src/components/Header';
+import Footer from './src/components/Footer';
 const productDescription=()=>{
     const navigation = useNavigation();
 
@@ -25,7 +19,7 @@ const productDescription=()=>{
          <Text>
             Purificador de Agua
          </Text>
-         <View className="p-5">
+         <View className="p-5 flex">
             <View className="flex-column"> 
                 <Image source={'./assets/Home/P1.PNG'} className="shadow-lg"/>
                 <Image source={'./assets/Home/P1.PNG'} className="shadow-lg"/>
@@ -39,18 +33,20 @@ const productDescription=()=>{
          </View>
          <Text>
                 124.900
-            </Text>
-            <TextInput>
+         </Text>
+        <TextInput>
             Cantidad:1
-            </TextInput>
+        </TextInput>
             <View>
-                <Button
-                    title="Comprar"
-                    onPress={() => Alert.alert('Simple Button pressed')}
-                />
+                <Link to="/wayToPay">
+                    <Button
+                        title="Comprar"
+                    />
+                </Link>
+                
+             
                 <Button
                     title="Agregar al carrito"
-                    onPress={() => Alert.alert('Simple Button pressed')}
                 />
             </View>
             <View>
@@ -64,7 +60,7 @@ const productDescription=()=>{
 
                 </Text>
             </View>
-            <footer/>
+            <Footer/>
         </SafeAreaView>
        )
     

@@ -1,7 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
-import {View,Image,TextInput,Text, Button} from 'react-native';
+import {View,Image,TextInput,Text, Button, } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
+import Header from './src/components/Header';
+import Footer from './src/components/Footer';
+import { Link } from 'react-router-dom';
 
 
 const accountData=()=>{
@@ -13,7 +16,9 @@ const accountData=()=>{
      })
     },[])
     return(
+        
         <SafeAreaView>
+            <Header/>
             <View className="flex-row">
                   <Text>
                       Numero de tarjerta
@@ -55,6 +60,7 @@ const accountData=()=>{
                       title="Siguiente"
                   />
              </Link>
+             <Footer/>
 
         </SafeAreaView>
     )
