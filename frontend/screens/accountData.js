@@ -7,7 +7,7 @@ import Footer from './src/components/Footer';
 import { Link } from 'react-router-dom';
 
 
-const accountData=()=>{
+const AccountData=()=>{
     const navigation = useNavigation();
 
     useLayoutEffect(()=>{
@@ -67,3 +67,4 @@ const accountData=()=>{
 
 
     }
+    export default AccountData;

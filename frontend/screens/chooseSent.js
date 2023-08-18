@@ -7,7 +7,7 @@ import Footer from './src/components/Footer';
 
 
 
-const chooseSent=()=>{
+const ChooseSent=()=>{
     const navigation = useNavigation();
 
     useLayoutEffect(()=>{
@@ -50,3 +50,4 @@ const chooseSent=()=>{
 
 
     }
+    export default ChooseSent;

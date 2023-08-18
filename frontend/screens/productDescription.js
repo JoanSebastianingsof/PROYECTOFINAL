@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 //icons
 import Header from './src/components/Header';
 import Footer from './src/components/Footer';
-const productDescription=()=>{
+const ProductDescription=()=>{
     const navigation = useNavigation();
 
     useLayoutEffect(()=>{
@@ -65,5 +65,6 @@ const productDescription=()=>{
        )
     
  }
-   
+ export default ProductDescription;
+
    

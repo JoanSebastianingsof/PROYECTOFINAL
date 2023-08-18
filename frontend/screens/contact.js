@@ -4,7 +4,7 @@ import {View,Image,TextInput,Text, Button} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from './src/components/Header';
 import Footer from './src/components/Footer';
-const contact=()=>{
+const Contact=()=>{
     const navigation = useNavigation();
 
     useLayoutEffect(()=>{
@@ -70,3 +70,4 @@ const contact=()=>{
        )
     
  }
+ export default Contact;

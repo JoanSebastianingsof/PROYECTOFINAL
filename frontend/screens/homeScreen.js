@@ -2,11 +2,14 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
 import {View,Image,TextInput,Text} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import Header from './src/components/Header';
-import Footer from './src/components/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+//import { FontAwesomeIcon } from 'react-native-fontawesome';
 
-const HomeScreen=()=>{
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+
+const HomeScreen =()=>{
    const navigation = useNavigation();
 
    useLayoutEffect(()=>{
@@ -26,7 +29,7 @@ const HomeScreen=()=>{
             /*Body*/
         }
         <View>
-            <Image source={'./assets/Home/descuento.PNG'}/>            
+             <Image source={require('../assets/Home/descuento.png')} />
         </View>
         <View className="flex-row flex-1 space-x-2 bg-gray-50">
             <Text>
@@ -85,7 +88,8 @@ const HomeScreen=()=>{
 
       <Footer/>
     </SafeAreaView>
-   )
+   );
 
 
-}
+};
+export default HomeScreen;

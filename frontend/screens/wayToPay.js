@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Header from './src/components/Header';
 import Footer from './src/components/Footer';
 
-const wayToPay=()=>{
+const WayToPay=()=>{
     const navigation = useNavigation();
 
     useLayoutEffect(()=>{
@@ -98,3 +98,4 @@ const wayToPay=()=>{
 
 
     }
+    export default WayToPay;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import {View,Image,TextInput,Text, ScrollView, Linking} from 'react-native';
 //icons
-import{FontAwesomeIcon} from '@fortawesome/react-native-fortawesome';
+//import{FontAwesomeIcon} from '@fortawesome/react-native-fortawesome';
 
 const Footer=()=>{
     const[footer,setHeader]=useState([])
@@ -76,7 +76,9 @@ const Footer=()=>{
             </View>
         </ScrollView>
       
-    )
+    );
         
 };
+export default Footer;
+
 
