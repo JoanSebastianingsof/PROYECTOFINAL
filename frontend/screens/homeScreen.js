@@ -1,13 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
-import {View,Image,TextInput,Text} from 'react-native';
+import {View,Image,TextInput,Text,TouchableHighlight } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 //import { FontAwesomeIcon } from 'react-native-fontawesome';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { 
+    faMagnifyingGlassPlus,
+} from '@fortawesome/free-solid-svg-icons'
 
 const HomeScreen =()=>{
    const navigation = useNavigation();
@@ -35,11 +38,26 @@ const HomeScreen =()=>{
             <Text>
                 Productos
             </Text>
-            <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+           { /*FontAwesomeIcon icon={icon({name: 'useruser'})} /*/}
+           <FontAwesomeIcon icon={faMagnifyingGlassPlus} style={{color: "#ffffff",}} />
             <TextInput>
 
             </TextInput>
-            <Link to="/productDescription">
+            <TouchableHighlight onPress={() => navigation.navigate('ProductDescription')}>
+            <View className="flex-col shadow-lg">
+                <Image source={require('../assets/Home/P1.png')} />
+                <Text className="text-base">
+                Agua Filtro Purificador Ozono Carbón Completo+ Envío Gratis
+                </Text>
+                <Text className="text-sm">
+                Descripcion
+                </Text>
+                <Text className="text-base">
+                $159.900
+                </Text>
+            </View>
+        </TouchableHighlight>
+            {/*<Link to="/productDescription">
                  <View className="flex-col shadow-lg"  >
                     <Image source={'./assets/Home/P1.PNG'}/>
                     <Text className="text-base"> 
@@ -81,7 +99,7 @@ const HomeScreen =()=>{
                         $159.900
                     </Text>
                 </View>
-            </Link>
+        </Link >*/ }
            
         </View>
 

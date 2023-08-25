@@ -2,8 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
 import {View,Image,TextInput,Text, Button} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import Header from './src/components/Header';
-import Footer from './src/components/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 const Contact=()=>{
     const navigation = useNavigation();
 
@@ -17,7 +17,7 @@ const Contact=()=>{
                  <Header/>
 
                  <View>
-                    <Image source={'./assets/Home/descuento.PNG'}/>                 
+                    <Image source={'./assets/Home/descuento.png'}/>                 
                  </View>
 
                  <Text>

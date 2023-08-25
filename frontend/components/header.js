@@ -1,7 +1,10 @@
 import React from 'react';
-import { Button, View } from 'react-native';
+//import { Button, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from"../screens/HomeScreen";
+import Contact from"../screens/Contact";
+
 
 
 
@@ -9,12 +12,11 @@ import { NavigationContainer } from '@react-navigation/native';
 
   const Header=()=>{
       return (
-        <NavigationContainer>
+        
           <Drawer.Navigator initialRouteName="Home">
             <Drawer.Screen name="Home" component={HomeScreen} />
-            <Drawer.Screen name="Contactenos" component={contact} />
+            <Drawer.Screen name="Contactenos" component={Contact} />
           </Drawer.Navigator>
-        </NavigationContainer>
       );
 
   };

@@ -2,10 +2,16 @@ import { useState } from 'react';
 
 import {View,Image,TextInput,Text, ScrollView, Linking} from 'react-native';
 //icons
-//import{FontAwesomeIcon} from '@fortawesome/react-native-fortawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { 
+    faFacebook,
+    faInstagram,
+    faTwitter,
+    faWhatsapp
+} from '@fortawesome/free-solid-svg-icons'
 
 const Footer=()=>{
-    const[footer,setHeader]=useState([])
+    const[Footer,setHeader]=useState([])
     const Email = async() => {
       await Linking.openURL("mailto:Paldsyc@gmail.com");
     }
@@ -64,10 +70,10 @@ const Footer=()=>{
                     cll 51 b #38-47 
                   </Text>
                   <View className="text-white flex">
-                    <FontAwesomeIcon icon="fa-brands fa-facebook" style={{color: "#ffffff",}} onPress={Facebook}/>
-                    <FontAwesomeIcon icon="fa-brands fa-instagram" style={{color: "#ffffff",}}  onPress={Instagram} />
-                    <FontAwesomeIcon icon="fa-brands fa-twitter" style={{color: "#ffffff",}}   onPress={Twitter}/>
-                    <FontAwesomeIcon icon="fa-brands fa-whatsapp" style={{color: "#ffffff",}} onPress={Whatsapp} />
+                    <FontAwesomeIcon icon={faFacebook} style={{color: "#ffffff",}}  onPress={Facebook} />
+                    <FontAwesomeIcon icon={faInstagram} style={{color: "#ffffff",}} onPress={Instagram} />
+                    <FontAwesomeIcon icon={faTwitter} style={{color: "#ffffff",}}  onPress={Twitter} />     
+                    <FontAwesomeIcon icon={faWhatsapp} style={{color: "#ffffff",}} onPress={Whatsapp}/>
                   </View>
     
     
