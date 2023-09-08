@@ -1,16 +1,24 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
-import {View,Image,TextInput,Text, Button} from 'react-native';
+import {View,Image,TextInput,Text, Button,TouchableOpacity,StyleSheet } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { auth } from '../firebase'
+//import { auth } from '../firebase'
+
 
 const Login=()=>{
-    const [email,setEmail] = useState("")
-    const [password,setPasword] = useState("")
+   /* const [email,setEmail] = useState("")
+    const [password,setPasword] = useState("")*/
     const navigation = useNavigation();
+    const handleNavigateToHome = () => {
+        // Navega a la pantalla de inicio (HomeScreen)
+        navigation.navigate('HomeScreen');
+      };
+      const handleNavigateToSignUp = () => {
+        // Navega a la pantalla de inicio (HomeScreen)
+        navigation.navigate('SignUp');
+      };
 
-
-    useEffect(()=>{
+   /* useEffect(()=>{
         const unsubscribe = auth.onAuthStateChanged(user => {
             if(user){
                 navigation.navigate("Home")
@@ -37,50 +45,61 @@ const Login=()=>{
                 console.log('Logged in with:', user.email)
             })
             .catch(error => console.err(error))
-    }
+    }*/
     return(
-        <SafeAreaView>
+        <SafeAreaView className="bg-white  content-center " style={{ height: 1300}}
+        >
 
-                 <View>
+                 <View className="items-center" style={{ marginTop: 200 , marginBottom:100} }>
                  <Image source={require('../assets/Home/Login.png')} />
                  </View>
               
-                 <View className="flex-column">
-                        <View className="flex">
-                            <TextInput
+                 <View className="flex-column items-center mt-8">
+                        <View className="flex mb-8">
+                            <TextInput className="border-b-2 w-96  border-black mb-8 text-lg"
                                 placeholder='Email'
-                                value={email}
+                              /*  value={email}
                                 onChangeText={text => setEmail(text)}
-                                style={styles.input}
+                               style={styles.input}*/
                             />
                                 </View>
                         
-                        <View className="flex">
-                            <TextInput
+                        <View className="flex "style={{marginBottom:50} }>
+                            <TextInput className="border-b-2 w-96  border-black   text-lg" 
                             placeholder='Password'
-                            value={password}
+                         /*   value={password}
                             onChangeText={text => setPasword(text)}
-                            style={styles.input}
+                           style={styles.input}*/
                             secureTextEntry
                             />
                         </View>
                         
-                        <View
-                            style={styles.buttonContainer}
-                        >
-                            <TouchableOpacity
-                                onPress={handleLogin}
+                        <View >
+                            <TouchableOpacity  style={styles.button}
+                                  onPress={handleNavigateToHome}
+
+                               // onPress={handleLogin}
                             >
-                            <Text style={styles.button}>Ingresar</Text>
+                                <Text style={styles.buttonText}>Ingresar</Text>
+
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={handleSignUp}
-                                style={[styles.button, styles.buttonOutline]}
+                               // onPress={handleSignUp}
+                              //  style={[styles.button, styles.buttonOutline]}
                             >
-                            <View className="flex">
-                                <Text>No tienes un cuenta?</Text>
-                                <Text  component={SignUp}>Resgistrate</Text>
+                            <View className="flex items-center mt-8">
+                                <Text className="text-blue-500  text-lg my-8 ">Haz olvidado tu contraseña?</Text>
+                               
+                                
                             </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                               onPress={handleNavigateToSignUp}
+                            >
+                            <View className="flex-row">
+                                 <Text className="text-lg">¿No tienes una cuenta? </Text>
+                                 <Text className="text-blue-500  text-lg">Resgistrate</Text>
+                                </View>
                             </TouchableOpacity>
                         </View>
         
@@ -89,5 +108,21 @@ const Login=()=>{
         </SafeAreaView>
        )
     
- }
+ };
+ const styles = StyleSheet.create({
+    button: {
+      width: 350,
+      height: 80,
+      backgroundColor: '#2B559C', // Color de fondo del botón
+      borderRadius: 10,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    buttonText: {
+      fontSize: 18,
+      color: 'white', // Color del texto del botón
+    },
+  });
+  
+  
  export default Login;

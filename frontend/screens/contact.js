@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
-import {View,Image,TextInput,Text, Button} from 'react-native';
+import {View,Image,TextInput,Text, Button,StyleSheet,TouchableOpacity} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -13,55 +13,65 @@ const Contact=()=>{
      })
     },[])
     return(
-        <SafeAreaView>
+        <SafeAreaView className="bg-white h-screen">
                  <Header/>
 
-                 <View>
-                    <Image source={'./assets/Home/descuento.png'}/>                 
+                 <View className="pb-8 mb-8">
+                        <Image style={{ width: 600,height:250 }}  source={require('../assets/Home/descuento.png')}  />
                  </View>
-
-                 <Text>
-                         Contactenos
-                 </Text>
-                 <View className="flex-column">
-                        <View className="flex">
-                                <Text>
-                                         Nombre
+                <View className ="flex-column items-center  justify-center ">
+                        
+                        <Text className=" w-40 text-2xl" >
+                                Contactenos
+                        </Text>
+                       
+                </View>
+                 
+                 <View className="flex-column mt-5 pt-5" style={{marginBottom:180}}>
+                        <View className="justify-center flex-row mb-5" >
+                                <Text className="mr-4 text-lg ">
+                                         Nombre:
                                  </Text>
-                                 <TextInput>
+                                 <TextInput className="border-b-2 border-black w-96 ml-5">
 
                                  </TextInput>
                         </View>
                         
-                        <View className="flex">
-                                <Text>
-                                        Correo
+                        <View className="justify-center flex-row mb-5">
+                                <Text className="mr-5 pr-2 text-lg ">
+                                        Correo:
                                  </Text>
-                                 <TextInput>
+                                 <TextInput  className="border-b-2 border-black w-96 ml-5">
 
                                  </TextInput>
                         </View>
-                        <View className="flex">
-                                <Text>
-                                        Telefono
+                        <View className="justify-center flex-row mb-5">
+                                <Text className="mr-4 text-lg ">
+                                        Telefono:
                                  </Text>
-                                 <TextInput>
+                                 <TextInput  className="border-b-2 border-black w-96 ml-5">
 
                                  </TextInput>
                         </View>
-                        <View className="flex">
-                                <Text>
-                                        Mensaje
+                        <View className="justify-center flex-row mb-5">
+                                <Text className="mr-4 text-lg ">
+                                        Mensaje:
                                  </Text>
-                                 <TextInput>
+                                 <TextInput className="border-b-2 border-black w-96 ml-5">
 
                                  </TextInput>
                         </View>
-                       
-                                
-                         <Button
-                                title="Enviar"
-                         />
+                       <View className="items-center mt-8">
+                       <TouchableOpacity   style={styles.button}
+
+                        // onPress={handleLogin}
+                        >
+                        <Text style={styles.buttonText}>Ingresar</Text>
+
+                        </TouchableOpacity>
+
+                       </View>
+                      
         
                  </View>
 
@@ -70,4 +80,18 @@ const Contact=()=>{
        )
     
  }
+ const styles = StyleSheet.create({
+        button: {
+          width: 350,
+          height: 80,
+          backgroundColor: '#2B559C', // Color de fondo del botón
+          borderRadius: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        buttonText: {
+          fontSize: 18,
+          color: 'white', // Color del texto del botón
+        },
+      });
  export default Contact;
