@@ -1,13 +1,14 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useLayoutEffect } from "react";
+import React, { useState,useEffect,useLayoutEffect } from "react";
 import {View,Image,TextInput,Text, Button,TouchableOpacity,StyleSheet } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 //import { auth } from '../firebase'
-
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login=()=>{
-   /* const [email,setEmail] = useState("")
-    const [password,setPasword] = useState("")*/
+    const [email, setEmail] = useState("");
+    const [contraseña, setContraseña] = useState("");
     const navigation = useNavigation();
     const handleNavigateToHome = () => {
         // Navega a la pantalla de inicio (HomeScreen)
@@ -18,34 +19,27 @@ const Login=()=>{
         navigation.navigate('SignUp');
       };
 
-   /* useEffect(()=>{
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            if(user){
-                navigation.navigate("Home")
-            }
+      const login = () => {
+        signInWithEmailAndPassword(auth,email,contraseña).then((userCredential) => {
+           console.log("user credential", userCredential);
+           const user = userCredential.user;
+           console.log("user details", user);
         })
-        return unsubscribe
-    },[])
-    const handleSignUp = () => {
-        auth
-            .createUserWithEmailAndPassword(email,password)
-            .then(userCredentials => {
-                const user = userCredentials.user
-                console.log(user.email)
-            })
-            .catch(error => console.err(error))
     }
-
-    // login
-    const handleLogin = () => {
-        auth
-            .signInWithEmailAndPassword(email,password)
-            .then(userCredentials => {
-                const user = userCredentials.user
-                console.log('Logged in with:', user.email)
-            })
-            .catch(error => console.err(error))
-    }*/
+   
+     useEffect(() => {
+       try {
+         const unsubscribe = auth.onAuthStateChanged((authUser) => {
+           if (authUser) {
+             navigation.replace("HomeScreen");
+           }
+         });
+   
+         return unsubscribe;
+       } catch (e) {
+         console.log(e);
+       }
+     }, []);
     return(
         <SafeAreaView className="bg-white  content-center " style={{ height: 1300}}
         >
@@ -58,25 +52,26 @@ const Login=()=>{
                         <View className="flex mb-8">
                             <TextInput className="border-b-2 w-96  border-black mb-8 text-lg"
                                 placeholder='Email'
-                              /*  value={email}
-                                onChangeText={text => setEmail(text)}
-                               style={styles.input}*/
+                                value={email}
+                                onChangeText={(text) => setEmail(text)}
+                                placeholderTextColor={"black"}
+                              
                             />
                                 </View>
                         
                         <View className="flex "style={{marginBottom:50} }>
                             <TextInput className="border-b-2 w-96  border-black   text-lg" 
-                            placeholder='Password'
-                         /*   value={password}
-                            onChangeText={text => setPasword(text)}
-                           style={styles.input}*/
-                            secureTextEntry
+                            value={contraseña}
+                            onChangeText={(text) => setContraseña(text)}
+                            secureTextEntry={true}
+                            placeholder="Contraseña"
+                            placeholderTextColor={"black"}
                             />
                         </View>
                         
                         <View >
                             <TouchableOpacity  style={styles.button}
-                                  onPress={handleNavigateToHome}
+                                  onPress={login}
 
                                // onPress={handleLogin}
                             >

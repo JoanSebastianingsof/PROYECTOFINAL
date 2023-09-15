@@ -1,51 +1,50 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useLayoutEffect } from "react";
+import React, { useState,useEffect,useLayoutEffect } from "react";
 import {View,Image,TextInput,Text, Button,TouchableOpacity,StyleSheet } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { auth } from '../firebase'
-
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, db } from '../firebase';
+import { setDoc,doc } from 'firebase/firestore';
 const SignUp=()=>{
     const navigation = useNavigation();
 
-    const handleNavigateToLogin = () => {
+    /*const handleNavigateToLogin = () => {
         // Navega a la pantalla de inicio (HomeScreen)
         navigation.navigate('Login');
-      };
-    /*const [nombre,setnombre] = useState("")
+      };*/
+    const [nombre,setNombre] = useState("")
     const [email,setEmail] = useState("")
-    const [celular,setcelular] = useState("")
-    const [password,setPasword] = useState("")
-    const navigation = useNavigation();
+    const [contacto,setContacto] = useState("")
+    const [password,setPassword] = useState("");
 
 
-    useEffect(()=>{
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            if(user){
-                navigation.navigate("Home")
-            }
+      const register = () => {
+        if(email === "" || password === "" || contacto === "" || nombre==="" ){
+            Alert.alert(
+                "Invalid Detials",
+                "Please enter all the credentials",
+                [
+                  {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                  },
+                  { text: "OK", onPress: () => console.log("OK Pressed") }
+                ],
+                { cancelable: false }
+              );
+        }
+        createUserWithEmailAndPassword(auth,email,password).then((userCredentials) => {
+           
+            const user = userCredentials._tokenResponse.email;
+            const uid = auth.currentUser.uid;
+
+             setDoc(doc(db,"Usuario",`${uid}`),{
+                 email:user,
+                 contacto:contacto
+             })
         })
-        return unsubscribe
-    },[])
-    const handleSignUp = () => {
-        auth
-            .createUserWithEmailAndPassword(email,password)
-            .then(userCredentials => {
-                const user = userCredentials.user
-                console.log(user.email)
-            })
-            .catch(error => console.err(error))
     }
-
-    // login
-    const handleLogin = () => {
-        auth
-            .signInWithEmailAndPassword(email,password)
-            .then(userCredentials => {
-                const user = userCredentials.user
-                console.log('Logged in with:', user.email)
-            })
-            .catch(error => console.err(error))
-    }*/
     return(
         <SafeAreaView className="bg-white  content-center " style={{ height: 1300}}
         >
@@ -58,45 +57,44 @@ const SignUp=()=>{
               
                  <View className="flex-column items-center mt-8">
                         <View className="flex" style={{marginBottom:50} }>
+                             <TextInput className="border-b-2 w-96  border-black  text-lg"
+                                 placeholder='Nombre'
+                                 value={nombre}
+                                 onChangeText={(text) => setNombre(text)}
+                                 placeholderTextColor={"black"}
+                             />
+                        </View>
+                        <View className="flex" style={{marginBottom:50} }>
                             <TextInput className="border-b-2 w-96  border-black  text-lg"
                                 placeholder='Email'
-                              /*  value={email}
-                                onChangeText={text => setEmail(text)}
-                               style={styles.input}*/
+                                value={email}
+                                onChangeText={(text) => setEmail(text)}
+                                placeholderTextColor={"black"}
                             />
-                                </View>
+                        </View>
+                        
                         
                         <View className="flex "style={{marginBottom:50} }>
                             <TextInput className="border-b-2 w-96  border-black   text-lg" 
-                            placeholder='Correo'
-                         /*   value={password}
-                            onChangeText={text => setPasword(text)}
-                           style={styles.input}*/
-                            secureTextEntry
-                            />
-                        </View>
-                        <View className="flex "style={{marginBottom:50} }>
-                            <TextInput className="border-b-2 w-96  border-black   text-lg" 
                             placeholder='Numero de celular'
-                         /*   value={password}
-                            onChangeText={text => setPasword(text)}
-                           style={styles.input}*/
-                            secureTextEntry
+                            value={contacto}
+                            onChangeText={(text) => setContacto(text)}
+                            placeholderTextColor={"black"}
                             />
                         </View>
                         <View className="flex "style={{marginBottom:50} }>
                             <TextInput className="border-b-2 w-96  border-black   text-lg" 
                             placeholder='Password'
-                         /*   value={password}
-                            onChangeText={text => setPasword(text)}
-                           style={styles.input}*/
+                            value={password}
+                            onChangeText={(text) => setPassword(text)}
+                            placeholderTextColor={"black"}
                             secureTextEntry
                             />
                         </View>
                         
                         <View >
                             <TouchableOpacity  style={styles.button}
-                                  onPress={handleNavigateToLogin}
+                                  onPress={register}
 
                             >
                                 <Text style={styles.buttonText}>Ingresar</Text>

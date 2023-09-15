@@ -2,13 +2,16 @@
 // navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-//components
+//screens
 import HomeScreen  from './screens/HomeScreen';
 import Contact  from './screens/Contact';
 import SignUp  from './screens/SignUp';
 import Login  from './screens/Login';
 import ProductDescription  from './screens/ProductDescription';
 import PurchaseSummary  from './screens/PurchaseSummary';
+//redux
+/*import { store } from './redux/store'
+import { Provider } from 'react-redux'*/
 
 import React from 'react';
 import { TailwindProvider } from 'tailwindcss-react-native';
@@ -20,6 +23,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+      {/*<Provider store={store}>*/}
+
       <TailwindProvider>
         <Stack.Navigator>
           
@@ -51,7 +56,7 @@ export default function App() {
             headerShown: false
           }}
         />
- <Stack.Screen
+        <Stack.Screen
               name="ProductDescription"
               component={ProductDescription} 
               options={{
