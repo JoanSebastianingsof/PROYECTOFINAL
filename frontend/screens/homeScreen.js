@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect } from "react";
-import {View,Image,TextInput,Text,TouchableHighlight, ScrollView,StyleSheet } from 'react-native';
+import {View,Image,TextInput,Text,TouchableOpacity, ScrollView,StyleSheet } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -16,7 +16,10 @@ import {
 
 const HomeScreen =()=>{
    const navigation = useNavigation();
-
+   const handleNavigateToProduct = () => {
+    // Navega a la pantalla de inicio (HomeScreen)
+    navigation.navigate('ProductDescription');
+  };
    /*useLayoutEffect(()=>{
     navigation.setOptions({
         headerShown:false
@@ -54,11 +57,18 @@ const HomeScreen =()=>{
             <ScrollView
             horizontal
             >
+               <TouchableOpacity
+                  onPress={handleNavigateToProduct}
+                  >
+                
                 <View className=" bg-white rounded-lg mt-8 p-6 flex justify-center items-center mx-4" style={{width:550}}>
-                    <Image source={require('../assets/Home/P1.png')}  className=" w-96 h-96 mb-2" />   
-                    <Text className="text-2xl  font-semibold mb-2 mt-2">Título de la tarjeta</Text>
-                    <Text className="text-gray-600 text-xl">Contenido de la tarjeta</Text>
-                </View>
+                     <Image source={require('../assets/Home/P1.png')}  className=" w-96 h-96 mb-2" />   
+                     <Text className="text-2xl  font-semibold mb-2 mt-2">Título de la tarjeta</Text>
+                     <Text className="text-gray-600 text-xl">Contenido de la tarjeta</Text>
+                 </View>
+                 
+                </TouchableOpacity>
+                
                 <View className=" bg-white rounded-lg mt-8 p-6 flex justify-center items-center mx-4" style={{width:550}}>
                     <Image source={require('../assets/Home/P1.png')}  className=" w-96 h-96 mb-2" />   
                     <Text className="text-2xl  font-semibold mb-2 mt-2">Título de la tarjeta</Text>

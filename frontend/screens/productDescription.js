@@ -5,6 +5,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 //icons
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+//redux
+
 const ProductDescription=()=>{
     const navigation = useNavigation();
     const handleNavigateToPurchaseSummary = () => {

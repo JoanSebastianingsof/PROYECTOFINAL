@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useState,useEffect,useLayoutEffect } from "react";
+import React, { useState,useEffect } from "react";
 import {View,Image,TextInput,Text, Button,TouchableOpacity,StyleSheet } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 //import { auth } from '../firebase'

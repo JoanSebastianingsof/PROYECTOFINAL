@@ -10,8 +10,8 @@ import Login  from './screens/Login';
 import ProductDescription  from './screens/ProductDescription';
 import PurchaseSummary  from './screens/PurchaseSummary';
 //redux
-/*import { store } from './redux/store'
-import { Provider } from 'react-redux'*/
+import { store } from './redux/store'
+import { Provider } from 'react-redux'
 
 import React from 'react';
 import { TailwindProvider } from 'tailwindcss-react-native';
@@ -23,7 +23,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      {/*<Provider store={store}>*/}
+      <Provider store={store}>
 
       <TailwindProvider>
         <Stack.Navigator>
@@ -72,6 +72,7 @@ export default function App() {
             />         
         </Stack.Navigator>
       </TailwindProvider>
+      </Provider>
     </NavigationContainer>
   );
 }
